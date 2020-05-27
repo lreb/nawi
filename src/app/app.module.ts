@@ -7,18 +7,22 @@ import { ContactusComponent } from './components/contactus/contactus.component';
 import { ServicesComponent } from './components/services/services.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminModule } from './modules/admin/admin.module';
+import { FormsModule } from '@angular/forms';
+import { ContactusFormComponent } from './components/contactus-form/contactus-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactusComponent,
     ServicesComponent,
-    HomeComponent
+    HomeComponent,
+    ContactusFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminModule
+    AdminModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
