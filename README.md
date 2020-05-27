@@ -18,6 +18,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+### FAQ
+
+[No binary for Chrome browser on your platform](https://developerslogblog.wordpress.com/2019/03/19/how-to-fix-no-binary-for-chrome-browser-on-your-platform/)
+
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
@@ -45,6 +49,26 @@ run this code
 `npm run stats`
 
 [more info](https://www.digitalocean.com/community/tutorials/angular-bundle-size)
+
+## update
+
+`ng update`
+
+`--dryRun`
+
+`--all`
+
+`--force`
+
+[Tool](https://update.angular.io/)
+
+## Create library
+
+`ng build <app> --prod`
+
+`cd dist/app`
+
+`npm publish`
 
 ## Further help
 
