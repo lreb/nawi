@@ -1,1 +1,33 @@
 <p>services works!</p>
+
+<div class="row">
+  <div class="col-sm-12">
+    <input class="form-control" type="text" [(ngModel)]="listFilter" >
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h4>Filtered by: {{listFilter}}</h4>
+  </div>
+</div>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let service of filteredServices">
+      <th scope="row">{{service.number}}</th>
+      <td>{{service.name}}</td>
+      <td>{{service.description}}</td>
+      <td>{{service.price}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -10,6 +10,7 @@ import { AdminModule } from './modules/admin/admin.module';
 import { FormsModule } from '@angular/forms';
 import { ContactusFormComponent } from './components/contactus-form/contactus-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
 
 @NgModule({ // decorator
   declarations: [ // childs componnents
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContactusComponent,
     ServicesComponent,
     HomeComponent,
-    ContactusFormComponent
+    ContactusFormComponent,
+    ConvertToSpacesPipe // declare pipe
   ],
   imports: [ // dependencies
     BrowserModule, // imports directives (ngFor, ngIf, etc)

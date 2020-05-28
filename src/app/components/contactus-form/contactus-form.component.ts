@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm, NgModel} from '@angular/forms';
 import { ContactData } from 'src/app/models/contact/contact-data';
 import { ApiRestService } from 'src/app/shared/services/api-rest.service';
+import { ISelect } from 'src/app/models/ISelect';
 
 @Component({
   selector: 'app-contactus-form',
@@ -18,7 +19,7 @@ export class ContactusFormComponent implements OnInit {
     country: null
   };
 
-  countries;
+  countries: ISelect[];
 
   //  = {
   //   name: 'name',
@@ -30,7 +31,7 @@ export class ContactusFormComponent implements OnInit {
 
   constructor(private apiRest: ApiRestService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { // hock
     this.getCountries();
   }
 
