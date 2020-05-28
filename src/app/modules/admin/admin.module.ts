@@ -5,12 +5,14 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { UsersComponent } from './users/users.component';
 
-
+/**
+ * Decorator for a module
+ */
 @NgModule({
-  declarations: [AdminComponent, UsersComponent],
+  declarations: [AdminComponent, UsersComponent],  // childs componnents
   imports: [
-    CommonModule,
-    AdminRoutingModule
+    CommonModule, // configure as child module
+    AdminRoutingModule // set module routing configuration
   ]
 })
-export class AdminModule { }
+export class AdminModule { } // export module

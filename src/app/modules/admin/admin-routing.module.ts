@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { UsersComponent } from './users/users.component';
 
-
+/**
+ * Set routes configuration for this child module
+ */
 const routes: Routes = [
   {
     path: 'admin',
@@ -14,9 +16,11 @@ const routes: Routes = [
     ]
   }
 ];
-
+/**
+ * Decorator
+ */
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)], // routes configuration
+  exports: [RouterModule] // exports this module
 })
 export class AdminRoutingModule { }

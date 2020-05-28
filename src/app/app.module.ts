@@ -11,22 +11,22 @@ import { FormsModule } from '@angular/forms';
 import { ContactusFormComponent } from './components/contactus-form/contactus-form.component';
 import { HttpClientModule } from '@angular/common/http';
 
-@NgModule({
-  declarations: [
+@NgModule({ // decorator
+  declarations: [ // childs componnents
     AppComponent,
     ContactusComponent,
     ServicesComponent,
     HomeComponent,
     ContactusFormComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AdminModule,
-    FormsModule,
-    HttpClientModule
+  imports: [ // dependencies
+    BrowserModule, // imports directives (ngFor, ngIf, etc)
+    AppRoutingModule, // routing calls configuration
+    AdminModule, // aditional module
+    FormsModule, // imports diretcives (ngModule)
+    HttpClientModule // rest calls
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] // main component to load
 })
-export class AppModule { }
+export class AppModule { } // name of component
