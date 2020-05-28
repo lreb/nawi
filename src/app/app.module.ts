@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AdminModule } from './modules/admin/admin.module';
 import { FormsModule } from '@angular/forms';
 import { ContactusFormComponent } from './components/contactus-form/contactus-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContactusFormComponent } from './components/contactus-form/contactus-fo
     BrowserModule,
     AppRoutingModule,
     AdminModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

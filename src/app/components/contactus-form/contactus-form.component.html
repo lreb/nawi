@@ -1,16 +1,44 @@
 <p>contactus-form works!</p>
 
-<form #form="ngForm">
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+  {{contactForm.form.valid}}
+  {{contactForm.valid}}
+
   <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <label for="contactEmail" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" name="email" class="form-control" [(ngModel)]="contactData.email" [ngModelOptions]="{standalone: true}"/>
+      <input id="email" type="email" name="email" class="form-control"
+      ngModel [ngModelOptions]="{standalone: true}"
+      pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+      min="5"
+      max="200"
+      required
+      #contactEmail="ngModel"
+      (blur)="onBlur(contactEmail)"
+      [class.field-error]="contactForm.submitted && contactEmail.invalid"/>
+      <div [hidden]="!contactForm.submitted || contactEmail.valid" class="alert alert-danger">
+        Enter email
+      </div>
     </div>
   </div>
+
+  <h3>{{ showJSON(contactEmail)}}</h3>
+
+  <h3>dirty: {{contactEmail.dirty}}</h3>
+  <h3>pristine: {{contactEmail.pristine}}</h3>
+  <h3>touched: {{contactEmail.touched}}</h3>
+  <h3>untouched: {{contactEmail.untouched}}</h3>
+  <h3>valid: {{contactEmail.valid}}</h3>
+  <h3>invalid: {{contactEmail.invalid}}</h3>
+
   <div class="form-group row">
     <label for="inputPassword3" class="col-sm-2 col-form-label">Name</label>
     <div class="col-sm-10">
-      <input type="text" name="name" class="form-control" [(ngModel)]="contactData.name" [ngModelOptions]="{standalone: true}">
+      <input type="text" name="name" class="form-control"
+      [(ngModel)]="contactData.name" [ngModelOptions]="{standalone: true}"
+      pattern="^(?![ .]+$)[a-zA-Z .]*$"
+      max="200"
+      required>
     </div>
   </div>
   <fieldset class="form-group">
@@ -19,14 +47,14 @@
       <div class="col-sm-10">
         <div class="form-check">
           <input class="form-check-input" type="radio" name="gender" id="gender" value="female"
-          [(ngModel)]="contactData.gender" [ngModelOptions]="{standalone: true}">
+          [(ngModel)]="contactData.gender" [ngModelOptions]="{standalone: true}" required>
           <label class="form-check-label" for="gridRadios1">
             Female
           </label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="gender" id="gender" value="male"
-          [(ngModel)]="contactData.gender" [ngModelOptions]="{standalone: true}">
+          [(ngModel)]="contactData.gender" [ngModelOptions]="{standalone: true}" required>
           <label class="form-check-label" for="gridRadios2">
             Male
           </label>
@@ -47,7 +75,7 @@
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="gridCheck1"
         [(ngModel)]="contactData.agree" [ngModelOptions]="{standalone: true}">
-        <label class="form-check-label" for="gridCheck1">
+        <label class="form-check-label" for="gridCheck1" required>
           Example checkbox
         </label>
       </div>
@@ -56,16 +84,16 @@
   <div class="form-group row">
     <label class="col-sm-2" for="inlineFormCustomSelect">Country</label>
     <select class="col-sm-10" id="inlineFormCustomSelect"
-    [(ngModel)]="contactData.country" [ngModelOptions]="{standalone: true}">
+    [(ngModel)]="contactData.country" [ngModelOptions]="{standalone: true}" required>
       <option selected>Choose...</option>
-      <option value="mexico">Mexico</option>
-      <option value="usa">USA</option>
-      <option value="brazil">Brazil</option>
+      <option *ngFor="let country of countries" value="country.value">{{country.text}}</option>
     </select>
   </div>
   <div class="form-group row">
     <div class="col-sm-10">
+      <button type="submit" class="btn btn-default">Reset</button>
       <button type="submit" class="btn btn-primary">Sign in</button>
+
     </div>
   </div>
 </form>
@@ -73,4 +101,4 @@
 
 {{ contactData | json }}
 
-<!-- {{ form | json }} -->
+{{ showJSON(contactForm) }}

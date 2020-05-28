@@ -6,9 +6,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 `npm install bootstrap`
 
-
-
 [Install](https://getbootstrap.com/docs/4.5/getting-started/download/#npm)
+
+## forms
+
+[putsreq - tools to test post](https://putsreq.com/8EaANchgi4aU0V704UOV/inspect)
 
 ## Development server
 
