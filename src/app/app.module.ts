@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { ContactusFormComponent } from './components/contactus-form/contactus-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
+import { RateComponent } from './shared/components/rate/rate.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({ // decorator
   declarations: [ // childs componnents
@@ -19,14 +21,16 @@ import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
     ServicesComponent,
     HomeComponent,
     ContactusFormComponent,
-    ConvertToSpacesPipe // declare pipe
+    ConvertToSpacesPipe,
+    RateComponent // declare pipe
   ],
   imports: [ // dependencies
     BrowserModule, // imports directives (ngFor, ngIf, etc)
     AppRoutingModule, // routing calls configuration
     AdminModule, // aditional module
     FormsModule, // imports diretcives (ngModule)
-    HttpClientModule // rest calls
+    HttpClientModule, // rest calls
+    FontAwesomeModule // imporst
   ],
   providers: [],
   bootstrap: [AppComponent] // main component to load

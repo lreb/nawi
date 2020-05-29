@@ -25,7 +25,6 @@ export class ServicesComponent implements OnInit {
   constructor() {
     this.getServices();
     this.filteredServices = this.services;
-    // this.listFilter = 'design';
    }
 
   ngOnInit(): void {
@@ -40,10 +39,14 @@ export class ServicesComponent implements OnInit {
 
   getServices() {
     this.services = [
-      {number: 1 , name: 'development', description: 'create web apps', price: 10.25},
-      {number: 2 , name: 'design', description: 'design apps', price: 30.25},
-      {number: 3 , name: 'qa', description: 'test appps', price: 20.25}
+      {number: 1 , name: 'development', description: 'create web apps', price: 10.25, rate: 45 },
+      {number: 2 , name: 'design', description: 'design apps', price: 30.25, rate: 75 },
+      {number: 3 , name: 'qa', description: 'test appps', price: 20.25, rate: 85 }
     ];
+  }
+
+  onNotify(event) {
+    console.log(event);
   }
 
 }

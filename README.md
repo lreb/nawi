@@ -8,6 +8,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 [Install](https://getbootstrap.com/docs/4.5/getting-started/download/#npm)
 
+## fontawesome
+
+`npm install @fortawesome/fontawesome-svg-core`
+
+`npm install @fortawesome/free-solid-svg-icons`
+
+`npm i @fortawesome/angular-fontawesome`
+
+[instructions](https://github.com/FortAwesome/angular-fontawesome)
+
 ## forms
 
 [putsreq - tools to test post](https://putsreq.com/8EaANchgi4aU0V704UOV/inspect)

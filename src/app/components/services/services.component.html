@@ -12,6 +12,8 @@
   </div>
 </div>
 
+icon font
+<i class="fas fa-star"></i>
 
 <table class="table">
   <thead class="thead-dark">
@@ -20,6 +22,7 @@
       <th scope="col">Name</th>
       <th scope="col">Description</th>
       <th scope="col">Price</th>
+      <th scope="col">Rate</th>
     </tr>
   </thead>
   <tbody>
@@ -28,6 +31,9 @@
       <td>{{service.name}}</td>
       <td>{{service.description}}</td>
       <td>{{service.price}}</td>
+      <td>
+        <app-rate [rating]='service.rate' (notify)="onNotify($event)"></app-rate>
+      </td>
     </tr>
   </tbody>
 </table>
