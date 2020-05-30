@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
 import { RateComponent } from './shared/components/rate/rate.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ServiceComponent } from './components/service/service.component';
 
 @NgModule({ // decorator
   declarations: [ // childs componnents
@@ -22,7 +24,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     ContactusFormComponent,
     ConvertToSpacesPipe,
-    RateComponent // declare pipe
+    RateComponent,
+    NotFoundComponent,
+    ServiceComponent // declare pipe
   ],
   imports: [ // dependencies
     BrowserModule, // imports directives (ngFor, ngIf, etc)

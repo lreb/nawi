@@ -39,9 +39,9 @@ export class ServicesComponent implements OnInit {
 
   getServices() {
     this.services = [
-      {number: 1 , name: 'development', description: 'create web apps', price: 10.25, rate: 45 },
-      {number: 2 , name: 'design', description: 'design apps', price: 30.25, rate: 75 },
-      {number: 3 , name: 'qa', description: 'test appps', price: 20.25, rate: 85 }
+      { id: 1, number: 1 , name: 'development', description: 'create web apps', price: 10.25, rate: 45 },
+      { id: 2, number: 2 , name: 'design', description: 'design apps', price: 30.25, rate: 75 },
+      { id: 3, number: 3 , name: 'qa', description: 'test appps', price: 20.25, rate: 85 }
     ];
   }
 

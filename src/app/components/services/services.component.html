@@ -23,6 +23,7 @@ icon font
       <th scope="col">Description</th>
       <th scope="col">Price</th>
       <th scope="col">Rate</th>
+      <th scope="col">Details</th>
     </tr>
   </thead>
   <tbody>
@@ -33,6 +34,9 @@ icon font
       <td>{{service.price}}</td>
       <td>
         <app-rate [rating]='service.rate' (notify)="onNotify($event)"></app-rate>
+      </td>
+      <td>
+        <a type="button" class="btn btn-info btn-sm" [routerLink]="['/services', service.id]">See</a>
       </td>
     </tr>
   </tbody>

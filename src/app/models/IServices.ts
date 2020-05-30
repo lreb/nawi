@@ -1,4 +1,5 @@
 export interface IService {
+  id: number;
   number: number;
   name: string;
   description: string;
