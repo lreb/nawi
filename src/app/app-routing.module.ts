@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContactusComponent } from './components/contactus/contactus.component';
-import { ServicesComponent } from './components/services/services.component';
+// import { ServicesComponent } from './components/services/services.component';
 import { HomeComponent } from './components/home/home.component';
-import { ServiceComponent } from './components/service/service.component';
+// import { ServiceComponent } from './components/service/service.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ServicesGuard } from './shared/guards/services.guard';
+// import { ServicesGuard } from './shared/guards/services.guard';
 
 /**
  * Routes configuration
@@ -13,8 +13,10 @@ import { ServicesGuard } from './shared/guards/services.guard';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
-  { path: 'services', component: ServicesComponent },
-  { path: 'services/:id', canActivate: [ServicesGuard], component: ServiceComponent }, // ,
+  // { path: 'services', component: ServicesComponent },
+  // { path: 'services/:id', canActivate: [ServicesGuard], component: ServiceComponent }, // ,
+  { path: 'admin', loadChildren: './modules/admin/admin.module#AdminModule' },
+  { path: 'services', loadChildren: './modules/services/services.module#ServicesModule' },
   { path: 'contactus', component: ContactusComponent },
   { path: '**', component: NotFoundComponent }
 ];

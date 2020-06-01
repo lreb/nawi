@@ -38,6 +38,16 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 `ng g c modules/authentication/components/login -m authentication.module -d`
 
+#### shared module
+
+create a module
+
+`ng g m modules/services --routing -m app.module`
+
+create a shared module
+
+`ng g m shared/modules/services -m modules/services/services.module`
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
