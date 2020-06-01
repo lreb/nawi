@@ -35,7 +35,8 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
     AdminModule, // aditional module
     FormsModule, // imports diretcives (ngModule)
     HttpClientModule, // rest calls
-    FontAwesomeModule, AuthenticationModule // imporst
+    FontAwesomeModule, // modules
+    AuthenticationModule
   ],
   providers: [], // no recommend, instead use declaration Injectable -> providedIn
   bootstrap: [AppComponent] // main component to load

@@ -34,7 +34,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 `ng g m modules/admin --routing -m app.module`
 
+#### create component within a module
 
+`ng g c modules/authentication/components/login -m authentication.module -d`
 
 ## Build
 
