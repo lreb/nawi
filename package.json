@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "stats": "npx webpack-bundle-analyzer dist/Angular-HandsOn/stats-es2015.json",
+    "compodoc": "npx compodoc -p tsconfig.json",
+    "compodoc-serve": "npx compodoc -p tsconfig.json -s",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -32,6 +34,7 @@
     "@angular-devkit/build-angular": "~0.901.7",
     "@angular/cli": "~9.1.7",
     "@angular/compiler-cli": "~9.1.9",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",

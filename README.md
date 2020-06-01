@@ -108,6 +108,22 @@ run this code
 
 `npm publish`
 
+## documentation
+
+[installation](https://compodoc.app/guides/installation.html)
+
+with angular 8, and everything is working, including routing
+
+run documentation
+
+`npm run compodoc`
+
+run documentation and serve with http
+
+`npm run compodoc-serve`
+
+[source](https://compodoc.app/)
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
