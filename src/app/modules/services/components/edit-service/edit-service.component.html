@@ -1,4 +1,16 @@
 <h3>Edit service: {{serviceId}} </h3>
+asas
+<div class="card-body">
+  <div class="wizard">
+    <!-- Absoulte path -->
+    <a href="" type="button" class="btn btn-info" [routerLink]="['info']" >Info</a>
+    <!-- Relative path -->
+    <!-- <a href="" [routerLink]="['/service', 1, 'edit', 'info']" ></a> -->
+    <a href="" type="button" class="btn btn-info" [routerLink]="['tags']" >Tags</a>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
 
 <form>
   <div class="form-group row">

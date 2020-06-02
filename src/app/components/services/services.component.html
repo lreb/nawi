@@ -4,7 +4,7 @@
     <input class="form-control" type="text" [(ngModel)]="listFilter" >
   </div>
   <div class="col-sm-4">
-    <a type="button" class="btn btn-primary float-right" [routerLink]="['/service', 0, 'edit']">Add Service</a>
+    <a type="button" class="btn btn-primary float-right" [routerLink]="['/services', 0, 'edit']">Add Service</a>
   </div>
 </div>
 
@@ -28,14 +28,14 @@
   <tbody>
     <tr *ngFor="let service of filteredServices">
       <th scope="row">{{service.number}}</th>
-      <td><a [routerLink]="['/service', service.id]">{{service.name}}</a></td>
+      <td><a [routerLink]="['/services', service.id]">{{service.name}}</a></td>
       <td>{{service.description}}</td>
       <td>{{service.price}}</td>
       <td>
         <app-rate [rating]='service.rate' (notify)="onNotify($event)"></app-rate>
       </td>
       <td>
-        <a type="button" class="btn btn-primary btn-sm" [routerLink]="['/service', service.id, 'edit']">Edit</a>
+        <a type="button" class="btn btn-primary btn-sm" [routerLink]="['/services', service.id, 'edit']">Edit</a>
       </td>
     </tr>
   </tbody>

@@ -4,11 +4,30 @@ import { ServicesComponent } from 'src/app/components/services/services.componen
 import { ServiceComponent } from 'src/app/components/service/service.component';
 import { ServicesGuard } from 'src/app/shared/guards/services.guard';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
+import { EditTagsServiceComponent } from './components/edit-tags-service/edit-tags-service.component';
+import { InfoServiceComponent } from './components/info-service/info-service.component';
 
 const routes: Routes = [
-  { path: 'services', component: ServicesComponent },
-  { path: 'service/:id', canActivate: [ServicesGuard], component: ServiceComponent },
-  { path: 'service/:id/edit', component: EditServiceComponent }
+  { path: 'services', children: [
+      { path: '', component: ServicesComponent },
+      {
+        path: ':id',
+        canActivate: [ServicesGuard],
+        component: ServiceComponent
+        // resolve: {resolvedData: serviceResolver}
+      },
+      {
+        path: ':id/edit',
+        component: EditServiceComponent,
+        // resolve: {resolvedData: serviceResolver},
+        children: [
+          { path: '', redirectTo: 'info', pathMatch: 'full' },
+          { path: 'info', component: InfoServiceComponent },
+          { path: 'tags', component: EditTagsServiceComponent }
+        ]
+      }
+    ]
+  }
 ];
 
 @NgModule({
