@@ -8,26 +8,46 @@ import { EditTagsServiceComponent } from './components/edit-tags-service/edit-ta
 import { InfoServiceComponent } from './components/info-service/info-service.component';
 
 const routes: Routes = [
-  { path: 'services', children: [
-      { path: '', component: ServicesComponent },
-      {
-        path: ':id',
-        canActivate: [ServicesGuard],
-        component: ServiceComponent
-        // resolve: {resolvedData: serviceResolver}
-      },
-      {
-        path: ':id/edit',
-        component: EditServiceComponent,
-        // resolve: {resolvedData: serviceResolver},
-        children: [
-          { path: '', redirectTo: 'info', pathMatch: 'full' },
-          { path: 'info', component: InfoServiceComponent },
-          { path: 'tags', component: EditTagsServiceComponent }
-        ]
-      }
+  {
+    path: '',
+    component: ServicesComponent
+  },
+  {
+    path: ':id',
+    component: ServiceComponent,
+    // resolve: { resolvedData: ProductResolver }
+  },
+  {
+    path: ':id/edit',
+    component: EditServiceComponent,
+    // canDeactivate: [ProductEditGuard],
+    // resolve: { resolvedData: ProductResolver },
+    children: [
+      { path: '', redirectTo: 'info', pathMatch: 'full' },
+      { path: 'info', component: InfoServiceComponent },
+      { path: 'tags', component: EditTagsServiceComponent }
     ]
   }
+  // { path: 'services', children: [
+  //     { path: '', component: ServicesComponent },
+  //     {
+  //       path: ':id',
+  //       canActivate: [ServicesGuard],
+  //       component: ServiceComponent
+  //       // resolve: {resolvedData: serviceResolver}
+  //     },
+  //     {
+  //       path: ':id/edit',
+  //       component: EditServiceComponent,
+  //       // resolve: {resolvedData: serviceResolver},
+  //       children: [
+  //         { path: '', redirectTo: 'info', pathMatch: 'full' },
+  //         { path: 'info', component: InfoServiceComponent },
+  //         { path: 'tags', component: EditTagsServiceComponent }
+  //       ]
+  //     }
+  //   ]
+  // }
 ];
 
 @NgModule({
