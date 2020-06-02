@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Event, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, Router } from '@angular/router';
+import { MessageService } from './modules/messages/message.service';
 /**
  * Decorartor for the app componenet
  */
@@ -12,7 +13,15 @@ export class AppComponent {
 
   title = 'Angular-HandsOn';
   loading = true;
-  constructor(private router: Router) {
+
+  get isMessageDisplayed(): boolean {
+    return this.messageService.isDisplayed;
+  }
+
+  constructor(
+    private router: Router,
+    private messageService: MessageService
+  ) {
     router.events.subscribe((routerEvent: Event) => {
       this.checkRouterEvent(routerEvent);
     });
@@ -28,6 +37,16 @@ export class AppComponent {
       routerEvent instanceof NavigationError) {
       this.loading = false;
     }
+  }
+
+  displayMessages(): void {
+    this.router.navigate([{ outlets: { popup: ['messages'] } }]);
+    this.messageService.isDisplayed = true;
+  }
+
+  hideMessages(): void {
+    this.router.navigate([{ outlets: { popup: null } }]);
+    this.messageService.isDisplayed = false;
   }
 
 }
