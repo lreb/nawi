@@ -25,7 +25,10 @@ const routes: Routes = [
  * Decorator for a moduel
  */
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], // set routes configuration
+  imports: [RouterModule.forRoot(routes
+    // , {enableTracing: true} enalbe this for debug routing
+    )
+  ], // set routes configuration
   exports: [RouterModule] // export routes aputside this module (used in module who imports this module)
 })
 export class AppRoutingModule { }

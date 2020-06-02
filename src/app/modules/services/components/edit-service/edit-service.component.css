@@ -2,3 +2,25 @@ button {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+/* rounds and corners */
+.wizard a:first-child {
+  -webkit-border-radius: 8px 0 0 0px;
+  -moz-border-radius: 8px 0 0 0px;
+  border-radius: 8px 0 0 0px;
+}
+
+.wizard a:last-child {
+  -webkit-border-radius: 0 8px 0 0px;
+  -moz-border-radius: 0 8px 0 0px;
+  border-radius: 0 8px 0 0px;
+}
+
+.wizard .active {
+  background-color: #007ACC;
+  color: #fff;
+}
+/* adds right arrow after the tab*/
+.wizard .active::after {
+  border-left-color: #007ACC;
+}

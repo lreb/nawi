@@ -3,10 +3,10 @@ asas
 <div class="card-body">
   <div class="wizard">
     <!-- Absoulte path -->
-    <a href="" type="button" class="btn btn-info" [routerLink]="['info']" >Info</a>
+    <a href="" [routerLink]="['info']" routerLinkActive="active">Info</a>
     <!-- Relative path -->
     <!-- <a href="" [routerLink]="['/service', 1, 'edit', 'info']" ></a> -->
-    <a href="" type="button" class="btn btn-info" [routerLink]="['tags']" >Tags</a>
+    <a href="" [routerLink]="['tags']" routerLinkActive="active">Tags</a>
   </div>
 
   <router-outlet></router-outlet>

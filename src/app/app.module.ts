@@ -18,7 +18,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { ServicesModule } from './modules/services/services.module';
 // import { ServicesModule } from './modules/services/services.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({ // decorator
   declarations: [ // childs componnents, pipes
     AppComponent,
@@ -32,6 +32,7 @@ import { ServicesModule } from './modules/services/services.module';
   ],
   imports: [ // dependencies, modules, 3th party software
     BrowserModule, // imports directives (ngFor, ngIf, etc)
+    BrowserAnimationsModule,
     HttpClientModule, // rest calls
     FormsModule, // imports diretcives (ngModule)
     // FontAwesomeModule, // modules
