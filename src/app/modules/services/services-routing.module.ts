@@ -17,7 +17,7 @@ const routes: Routes = [
     //   ]
   },
   {
-    path: 'services/:id',
+    path: 'service/:id',
     canActivate: [ServicesGuard],
     component:  ServiceComponent
   }

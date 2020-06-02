@@ -15,8 +15,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   // { path: 'services', component: ServicesComponent },
   // { path: 'services/:id', canActivate: [ServicesGuard], component: ServiceComponent }, // ,
-  { path: 'admin', loadChildren: './modules/admin/admin.module#AdminModule' },
-  { path: 'services', loadChildren: './modules/services/services.module#ServicesModule' },
+  // { path: 'admin', loadChildren: './modules/admin/admin.module#AdminModule' },
+  // { path: 'services', loadChildren: './modules/services/services.module#ServicesModule' },
+  // { path: 'login', loadChildren: './modules/services/authentication.module#AuthenticationModule' },
   { path: 'contactus', component: ContactusComponent },
   { path: '**', component: NotFoundComponent }
 ];

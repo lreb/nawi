@@ -35,7 +35,7 @@ import { ServicesModule } from './modules/services/services.module';
     HttpClientModule, // rest calls
     FormsModule, // imports diretcives (ngModule)
     // FontAwesomeModule, // modules
-    // AuthenticationModule,
+    AuthenticationModule,
     ServicesModule,
     AdminModule, // aditional module
     AppRoutingModule, // routing calls configuration
