@@ -5,6 +5,7 @@ import { ContactusComponent } from './components/contactus/contactus.component';
 import { HomeComponent } from './components/home/home.component';
 // import { ServiceComponent } from './components/service/service.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { UserResolver } from './modules/users/users-resolver.services';
 // import { ServicesGuard } from './shared/guards/services.guard';
 
 /**
@@ -22,6 +23,7 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule)
+    // ,resolve: { resolveUsers: UserResolver}
   },
   { path: 'contactus', component: ContactusComponent },
   { path: '**', component: NotFoundComponent }

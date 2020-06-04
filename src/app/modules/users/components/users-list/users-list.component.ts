@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiRestService } from 'src/app/shared/services/api-rest.service';
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/models/classes/User';
+import { ActivatedRoute } from '@angular/router';
+import { ServiceResult } from 'src/app/models/classes/TrackerError';
 
 @Component({
   selector: 'app-users-list',
@@ -12,11 +14,19 @@ export class UsersListComponent implements OnInit {
 
   users: User[];
   constructor(
-    private api: ApiRestService
+    private api: ApiRestService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.getUsers();
+    const resolverUsers: User[] | ServiceResult = this.route.snapshot.data['resolvedUser']; // | Users
+    if (resolverUsers instanceof ServiceResult) {
+      console.log(`message: ${resolverUsers}`)
+    } else {
+      this.users = resolverUsers;
+    }
+
+    // this.getUsers();
   }
 
   getUsers(): void {

@@ -3,6 +3,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { ServiceResult } from 'src/app/models/classes/TrackerError';
 /**
  * Http service to call api
  */
@@ -80,14 +81,13 @@ export class ApiRestService {
     );
   }
 
-  private handleError(err: HttpErrorResponse) {
-    let errorMessage = '';
+  private handleError(err: HttpErrorResponse): Observable<ServiceResult> {
+    const serviceResult = new ServiceResult();
     if (err.error instanceof ErrorEvent) {
-      errorMessage = `An error ocurred ${err.error.message}`;
+      serviceResult.message = `An error ocurred ${err.error.message}`;
     } else {
-      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+      serviceResult.message = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
-    console.log();
-    return throwError(errorMessage);
+    return throwError(serviceResult);
   }
 }
