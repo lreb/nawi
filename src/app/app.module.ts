@@ -17,6 +17,10 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessageModule } from './modules/messages/message.module';
 import { UsersModule } from './modules/users/users.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApiHeaderInterceptor } from './shared/services/api-header.interceptor';
+import { ApiResponseInterceptor } from './shared/services/api-response.interceptor';
+
 @NgModule({ // decorator
   declarations: [ // childs componnents, pipes
     AppComponent,
@@ -41,7 +45,10 @@ import { UsersModule } from './modules/users/users.module';
     UsersModule,
     AppRoutingModule// routing calls configuration
   ],
-  providers: [], // no recommend, instead use declaration Injectable -> providedIn
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ApiHeaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ApiResponseInterceptor, multi: true }
+  ], // no recommend, instead use declaration Injectable -> providedIn
   bootstrap: [AppComponent] // main component to load
 })
 export class AppModule { } // name of component
