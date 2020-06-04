@@ -16,6 +16,7 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
 // import { ServicesModule } from './modules/services/services.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessageModule } from './modules/messages/message.module';
+import { UsersModule } from './modules/users/users.module';
 @NgModule({ // decorator
   declarations: [ // childs componnents, pipes
     AppComponent,
@@ -31,13 +32,14 @@ import { MessageModule } from './modules/messages/message.module';
     BrowserModule, // imports directives (ngFor, ngIf, etc)
     BrowserAnimationsModule,
     HttpClientModule, // rest calls
-    FormsModule, // imports diretcives (ngModule)
+    // FormsModule, // imports diretcives (ngModule)
     // FontAwesomeModule, // modules
     AuthenticationModule,
     // ServicesModule, // removed for lazy loadig
     AdminModule, // aditional module
     MessageModule,
-    AppRoutingModule, // routing calls configuration
+    UsersModule,
+    AppRoutingModule// routing calls configuration
   ],
   providers: [], // no recommend, instead use declaration Injectable -> providedIn
   bootstrap: [AppComponent] // main component to load

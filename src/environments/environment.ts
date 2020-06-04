@@ -8,8 +8,8 @@ export const environment = {
     main: {
       host: 'https://gorest.co.in'
     },
-    otherAPI: {
-      host: 'https://some:4500'
+    netCoreAPI: {
+      host: 'http://localhost:51690/api'
     }
   }
 };

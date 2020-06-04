@@ -3,6 +3,7 @@ import {NgForm, NgModel} from '@angular/forms';
 import { ContactData } from 'src/app/models/contact/contact-data';
 import { ApiRestService } from 'src/app/shared/services/api-rest.service';
 import { ISelect } from 'src/app/models/ISelect';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contactus-form',
@@ -50,7 +51,7 @@ export class ContactusFormComponent implements OnInit {
   onSubmit(form: NgForm) {
     console.log('in onSubmit: ', form.valid);
     if (form.valid) {
-      this.apiRest.post(this.contactData).subscribe(res => {
+      this.apiRest.post(environment.apis.main.host, '', 'api/contact' , this.contactData).subscribe(res => {
         console.log('success: ', res);
       }, err => {
         console.log('error: ', err);

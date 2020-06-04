@@ -19,6 +19,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/services/services.module').then(m => m.ServicesModule)
   },
+  {
+    path: 'users',
+    loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule)
+  },
   { path: 'contactus', component: ContactusComponent },
   { path: '**', component: NotFoundComponent }
 ];
