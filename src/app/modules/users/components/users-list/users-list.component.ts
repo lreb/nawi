@@ -21,11 +21,10 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     const resolverUsers: User[] | ServiceResult = this.route.snapshot.data['resolvedUser']; // | Users
     if (resolverUsers instanceof ServiceResult) {
-      console.log(`message: ${resolverUsers}`)
+      console.log(`message: ${resolverUsers}`);
     } else {
       this.users = resolverUsers;
     }
-
     // this.getUsers();
   }
 
