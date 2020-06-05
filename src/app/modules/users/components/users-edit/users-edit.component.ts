@@ -3,7 +3,20 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ApiRestService } from 'src/app/shared/services/api-rest.service';
 import { User } from 'src/app/models/classes/User';
 import { environment } from 'src/environments/environment';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validator, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { faBaby } from '@fortawesome/free-solid-svg-icons';
+import { debounceTime, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+
+function userAvailability(c: AbstractControl): { [key: string]: boolean } | null {
+  const userName = c.get('userName');
+  if (true) {
+    c.get('userName').setErrors({
+      availability: true,
+    });
+  }
+  return { match: null };
+}
 
 @Component({
   selector: 'app-users-edit',
@@ -11,27 +24,73 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./users-edit.component.css']
 })
 export class UsersEditComponent implements OnInit {
-
+  routeId: number;
   userForm: FormGroup
   user = new User();
+  userNameEnabled: boolean;
   // user: User = {} as User;
   constructor(
     private route: ActivatedRoute,
     private api: ApiRestService,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
-    this.userForm = new FormGroup({
-      userId: new FormControl(),
-      name: new FormControl(),
-      userName: new FormControl(),
-      password: new FormControl()
+    // this.userForm = new FormGroup({
+    //   userId: new FormControl(),
+    //   name: new FormControl(),
+    //   userName: new FormControl(),
+    //   password: new FormControl()
+    // });
+    // build form group
+    this.userForm = this.fb.group({
+      userId: [ null ],
+      name: ['', [Validators.required, Validators.minLength(10)] ],
+      userName: ['', [Validators.required, Validators.minLength(6), Validators.pattern('^[^a-z]*[a-z]*[^a-z]*$')] ],
+      password: ['', [Validators.required, Validators.minLength(8)] ]
     });
-    const id = +this.route.snapshot.paramMap.get('id');
-    if (id > 0) {
-      this.getUser(id);
+    // get route params
+    this.routeId = +this.route.snapshot.paramMap.get('id');
+    if (this.routeId > 0) {
+      this.getUser(this.routeId);
+      this.userNameEnabled = true;
+    } else {
+      this.userNameEnabled = false;
     }
+    // value changes
+
+    const userNameValidation = this.userForm.get('userName');
+    // if (this.routeId > 0) {
+    //   userNameValidation.clearValidators();
+    // } else {
+    //   userNameValidation.setValidators(Validators.required)
+    // }
+
+    userNameValidation.valueChanges.pipe(
+      debounceTime(1000)
+    )
+    .subscribe(
+      value => {
+        if (this.routeId > 0) {
+          userNameValidation.clearValidators();
+        } else {
+          userNameValidation.setValidators(Validators.required)
+          this.api.get(environment.apis.netCoreAPI.host, '', `user/validate/availability/${value}`).subscribe(
+            (data: any) => {
+              console.log(`${typeof(data)} value: ${data}`);
+              if (!data) {
+                userNameValidation.setValidators(Validators.required);
+                this.userForm.controls.userName.setErrors({inuse: true});
+              }
+            },
+            (err: any) => {
+              console.log(err);
+            }
+          );
+        }
+      }
+    );
   }
 
   fillForm(user: User): void {
@@ -47,7 +106,7 @@ export class UsersEditComponent implements OnInit {
     if ( this.userForm.valid) {
       const user = {...this.user, ...this.userForm.value };
       console.log(user)
-      if (user.userId === null) {
+      if (user.userId === null || user.userId === 0) {
         user.userId = 0;
         this.createtUser(user);
       } else {

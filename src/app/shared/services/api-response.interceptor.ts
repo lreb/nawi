@@ -13,15 +13,15 @@ export class ApiResponseInterceptor implements HttpInterceptor {
       tap(event => {
         if (event instanceof HttpResponse) {
           const elapsed = Date.now() - started;
-          console.log(`Request for event status: ${event.status}`);
-          console.log(`Request for event headers: ${ JSON.stringify(event.headers) }`);
-          console.log(`Request for event body: ${ JSON.stringify(event.body) }`);
-          console.log(`Request for responseType: ${req.responseType}`);
-          console.log(`Request for headers: ${ JSON.stringify(req.headers) }`);
-          console.log(`Request for withCredentials: ${req.withCredentials}`);
-          console.log(`Request for method: ${req.method}`);
-          console.log(`Request for responseType: ${req.responseType}`);
-          console.log(`Request for ${req.urlWithParams} took ${elapsed} ms.`);
+          // console.log(`Request for event status: ${event.status}`);
+          // console.log(`Request for event headers: ${ JSON.stringify(event.headers) }`);
+          // console.log(`Request for event body: ${ JSON.stringify(event.body) }`);
+          // console.log(`Request for responseType: ${req.responseType}`);
+          // console.log(`Request for headers: ${ JSON.stringify(req.headers) }`);
+          // console.log(`Request for withCredentials: ${req.withCredentials}`);
+          // console.log(`Request for method: ${req.method}`);
+          // console.log(`Request for responseType: ${req.responseType}`);
+          // console.log(`Request for ${req.urlWithParams} took ${elapsed} ms.`);
         }
       })
     );

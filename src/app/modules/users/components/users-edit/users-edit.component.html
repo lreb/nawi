@@ -9,11 +9,19 @@
       <input type="text" class="form-control"
       id="nameUserId"
       formControlName="name"
-      placeholder="Full name (Required)"
-      required>
-
+      [ngClass]="{'is-invalid': (userForm.get('name').touched || userForm.get('name').dirty) && !userForm.get('name').valid }"
+      placeholder="Full name (Required)">
+      <span class="invalid-feedback d-block">
+        <span *ngIf="userForm.get('name').errors?.required">
+            Please enter the full name
+        </span>
+        <span *ngIf="userForm.get('name').errors?.minlength">
+          Must be longer tha 10 characters
+        </span>
+      </span>
     </div>
   </div>
+  {{userNameEnabled}}
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">UserName</label>
     <div class="col-sm-10">
@@ -21,7 +29,22 @@
       id="userNameId"
       formControlName="userName"
       placeholder="User name (Required)"
-      required>
+      [ngClass]="{'is-invalid': (userForm.get('userName').touched || userForm.get('userName').dirty) && !userForm.get('userName').valid
+                || userForm.get('userName').errors }"
+      [attr.disabled]="userNameEnabled ? '' : null">
+      {{userForm.get('userName').errors | json}}
+      {{userForm.get('userName').errors?.unique | json}}
+      <span class="invalid-feedback d-block">
+        <span *ngIf="userForm.get('userName').errors?.required">
+            Please enter the user name
+        </span>
+        <span *ngIf="userForm.get('userName').errors?.minlength">
+          Must be longer tha 6 characters
+        </span>
+        <span *ngIf="userForm.get('userName').errors?.inuse">
+          User name must be unique
+        </span>
+      </span>
     </div>
   </div>
   <div class="form-group row">
@@ -31,7 +54,16 @@
       id="passwordId"
       formControlName="password"
       placeholder="Secure password (Required)"
-      required>
+      [ngClass]="{'is-invalid': (userForm.get('password').touched || userForm.get('password').dirty) && !userForm.get('password').valid }"
+      >
+      <span class="invalid-feedback d-block">
+        <span *ngIf="userForm.get('password').errors?.required">
+            Please enter a secure password
+        </span>
+        <span *ngIf="userForm.get('password').errors?.minlength">
+          Must be longer tha 8 characters
+        </span>
+      </span>
     </div>
   </div>
   <div class="form-group row">
@@ -42,12 +74,15 @@
         Save
       </button>
       <a type="button" class="btn btn-secondary" [routerLink]="['/users']" >Cancel</a>
-
     </div>
   </div>
 </form>
+
+<hr>
 
 <br>Dirty: {{userForm.dirty}}
 <br>Touched: {{userForm.touched}}
 <br>Valid: {{userForm.valid}}
 <br>Value: {{userForm.value | json}}
+
+<hr>
