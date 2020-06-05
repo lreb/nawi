@@ -1,28 +1,53 @@
 <p>Add/Update user</p>
 
-<div>
+<form (ngSubmit)="saveUser()" [formGroup]="userForm">
+
+  <!-- <input type="hidden" id="userIdId" formControlName="userId"> -->
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Full Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="nameUser" [(ngModel)]="user.name">
+      <input type="text" class="form-control"
+      id="nameUserId"
+      formControlName="name"
+      placeholder="Full name (Required)"
+      required>
+
     </div>
   </div>
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">UserName</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="userNameUser" [(ngModel)]="user.userName">
+      <input type="text" class="form-control"
+      id="userNameId"
+      formControlName="userName"
+      placeholder="User name (Required)"
+      required>
     </div>
   </div>
   <div class="form-group row">
     <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="passwordUser" [(ngModel)]="user.password">
+      <input type="password" class="form-control"
+      id="passwordId"
+      formControlName="password"
+      placeholder="Secure password (Required)"
+      required>
     </div>
   </div>
   <div class="form-group row">
     <div class="col-sm-10">
-      <button type="button" class="btn btn-primary" (click)="saveUser()">Save</button>
+      <button type="submit" class="btn btn-primary"
+      [title]="userForm.valid ? 'Save your user' : 'Fill all required information'"
+      [disabled]="!userForm.valid">
+        Save
+      </button>
       <a type="button" class="btn btn-secondary" [routerLink]="['/users']" >Cancel</a>
+
     </div>
   </div>
-</div>
+</form>
+
+<br>Dirty: {{userForm.dirty}}
+<br>Touched: {{userForm.touched}}
+<br>Valid: {{userForm.valid}}
+<br>Value: {{userForm.value | json}}

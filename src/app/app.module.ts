@@ -20,6 +20,7 @@ import { UsersModule } from './modules/users/users.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiHeaderInterceptor } from './shared/services/api-header.interceptor';
 import { ApiResponseInterceptor } from './shared/services/api-response.interceptor';
+import { SharedModule } from './shared/modules/shared/shared.module';
 
 @NgModule({ // decorator
   declarations: [ // childs componnents, pipes
@@ -36,6 +37,7 @@ import { ApiResponseInterceptor } from './shared/services/api-response.intercept
     BrowserModule, // imports directives (ngFor, ngIf, etc)
     BrowserAnimationsModule,
     HttpClientModule, // rest calls
+    SharedModule,
     // FormsModule, // imports diretcives (ngModule)
     // FontAwesomeModule, // modules
     AuthenticationModule,
