@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/classes/User';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiRestService } from 'src/app/shared/services/api-rest.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-users-info',

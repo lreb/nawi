@@ -10,6 +10,7 @@ export const environment = {
     },
     netCoreAPI: {
       host: 'http://localhost:51690/api'
+      // host: 'https://exdeqtzxa2.execute-api.us-east-1.amazonaws.com/lab/api'
     }
   }
 };
