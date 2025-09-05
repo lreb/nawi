@@ -57,3 +57,28 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+# Folder Roles
+
+core/ → app-wide services, guards, interceptors, singletons (loaded once).
+
+shared/ → reusable components, directives, pipes used across features.
+
+features/ → business logic modules (auth, dashboard, users, etc). Keeps code modular.
+
+assets/ → images, icons, localization files.
+
+theme/ → global styling, SCSS variables, Tailwind setup.
+
+environments/ → separate configs for dev, prod, staging.
+
+
+7️⃣ Resumen de buenas prácticas
+Práctica	Beneficio
+CoreModule solo en AppModule	Evita múltiples instancias de servicios singleton
+SharedModule exportando reusable	Centraliza componentes reutilizables
+Feature modules separados	Claridad y escalabilidad
+Lazy loading	Reduce bundle inicial y acelera carga
+Standalone components	Simplifica módulos pequeños y microfeatures
+Signal-based services	Manejo de estado más eficiente y predecible
+Nombres claros y consistentes	Facilita mantenimiento y colaboración
