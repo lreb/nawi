@@ -5,3 +5,12 @@ NawiNet is a .NET 8 Web API project designed to provide a robust backend for var
 ```bash
 dotnet watch run --project src/nawi-net/nawi.api/nawi.api.csproj   
 ```
+
+dotnet run --project src/nawi-net/nawi.api/nawi.api.csproj 
+
+https://localhost:59979/api/demo
+
+dotnet clean
+
+
+
