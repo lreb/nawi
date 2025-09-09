@@ -1,6 +1,6 @@
-using nawi.api.Layers.Domain.Entities;
+using Nawi.Api.Layers.Domain.Entities;
 
-namespace nawi.api.Layers.Domain.Interfaces
+namespace Nawi.Api.Layers.Domain.Interfaces
 {
   public interface IDemoRepository
   {

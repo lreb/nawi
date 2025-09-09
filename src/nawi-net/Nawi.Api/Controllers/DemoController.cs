@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using nawi.api.Layers.Domain.Entities;
+using Nawi.Api.Layers.Domain.Entities;
 
 [Route("api/[controller]")]
 public class DemoController : ControllerBase

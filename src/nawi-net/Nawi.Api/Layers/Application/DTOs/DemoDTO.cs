@@ -1,4 +1,4 @@
-namespace nawi.api.Layers.Application.DTOs
+namespace Nawi.Api.Layers.Application.DTOs
 {
   public record DemoDTO
   {

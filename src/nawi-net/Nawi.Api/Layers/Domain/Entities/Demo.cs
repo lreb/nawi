@@ -1,4 +1,4 @@
-namespace nawi.api.Layers.Domain.Entities
+namespace Nawi.Api.Layers.Domain.Entities
 {
   public class Demo
   {
