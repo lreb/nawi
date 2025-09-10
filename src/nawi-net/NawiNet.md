@@ -15,5 +15,30 @@ dotnet clean
 
 
 
-
-
+```text
+Nawi.API/
+|-- Controllers/
+|-- Middleware/
+|-- Models/
+|-- Config/
+|-- Properties/
+|-- wwwroot/
+|-- Program.cs
+|-- Startup.cs
+Nawi.Core/
+|-- Domain/
+    |-- Entities/
+    |-- ValueObjects/
+    |-- Enums/
+    |-- Exceptions/
+    |-- Interfaces/
+    |-- Repositories/
+    |-- Services/
+|-- Infrastructure/
+    |-- Application/
+Nawi.Test/
+|-- DomainTests/
+|-- ApplicationTests/
+|-- IntegrationTests/
+```
+dotnet add package Microsoft.EntityFrameworkCore --version 8.0.20
