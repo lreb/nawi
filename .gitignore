@@ -69,6 +69,7 @@ Thumbs.db
 *.user
 *.userosscache
 *.sln.docstates
+appsettings.Local.json
 
 # Mono auto generated files
 mono_crash.*
@@ -320,3 +321,5 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+.fake
