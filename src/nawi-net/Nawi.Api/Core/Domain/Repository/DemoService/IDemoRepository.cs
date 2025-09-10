@@ -5,6 +5,6 @@ namespace Nawi.Api.Core.Domain.Data.Repository.DemoService
 {
     public interface IDemoRepository
     {
-        Task<PaginateResult<Demo>> GetDemoList(int pageNumber, int pageSize);
+        Task<PaginateResult<Demo>> GetDemoList(int pageNumber, int pageSize, CancellationToken cancellationToken = default);
     }
 }

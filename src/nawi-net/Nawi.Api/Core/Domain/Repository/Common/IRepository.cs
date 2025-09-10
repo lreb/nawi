@@ -9,7 +9,7 @@ namespace Nawi.Api.Core.Domain.Repository.Common
     /// <returns>paginated result</returns>
     public interface IRepositoryRead<T>
     {
-        Task<PaginateResult<T>> GetList(Expression<Func<T, bool>> filter, int pageNumber, int pageSize);
+        Task<PaginateResult<T>> GetList(Expression<Func<T, bool>> filter, int pageNumber, int pageSize, CancellationToken cancellationToken = default);
 
         //IEnumerable<T> GetPage(int page, int pageSize);
 

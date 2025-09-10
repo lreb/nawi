@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using Nawi.Api.Core.Domain.Data;
 
 namespace Nawi.Api.Core.Domain.Repository.Common
 {
@@ -11,14 +12,14 @@ namespace Nawi.Api.Core.Domain.Repository.Common
     public class GenericRepository<T> : IRepositoryRead<T>
     where T : class
     {
-        private readonly DbContext _context;
+        private readonly NawiDbContext _context;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository(NawiDbContext context)
         {
             _context = context;
         }
 
-        public async Task<PaginateResult<T>> GetList(Expression<Func<T, bool>> filter, int pageNumber, int pageSize)
+        public async Task<PaginateResult<T>> GetList(Expression<Func<T, bool>> filter, int pageNumber, int pageSize, CancellationToken cancellationToken = default)
         {
             var query = _context.Set<T>().AsQueryable().AsNoTracking();
 
@@ -27,7 +28,7 @@ namespace Nawi.Api.Core.Domain.Repository.Common
                 query = query.Where(filter);
             }
             var totalCount = query.Count();
-            var items = await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+            var items = await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync(cancellationToken);
             return new PaginateResult<T>
             {
                 Items = items,
@@ -36,11 +37,5 @@ namespace Nawi.Api.Core.Domain.Repository.Common
                 CurrentPage = pageNumber
             };
         }
-
-        // public IEnumerable<T> GetPage(int page, int pageSize)
-        // {
-        //     var offset = (page - 1) * pageSize;
-        //     return _context.Set<T>().Skip(offset).Take(pageSize).ToList();
-        // }
     }
 }

@@ -12,10 +12,10 @@ namespace Nawi.Api.Core.Domain.Data.Repository.DemoService
             _repository = repository;
         }
 
-        Task<PaginateResult<Demo>> IDemoRepository.GetDemoList(int pageNumber, int pageSize)
+        Task<PaginateResult<Demo>> IDemoRepository.GetDemoList(int pageNumber, int pageSize, CancellationToken cancellationToken)
         {
             Expression<Func<Demo, bool>> predicate = item => item.IsActive && item.Quantity > 0;
-            var result = _repository.GetList(predicate, pageNumber, pageSize);
+            var result = _repository.GetList(predicate, pageNumber, pageSize, cancellationToken);
             return result;
         }
   }
